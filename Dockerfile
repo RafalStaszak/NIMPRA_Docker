@@ -1,4 +1,4 @@
-FROM osrf/ros:foxy-desktop
+FROM osrf/ros:humble-desktop
 MAINTAINER Rafal Staszak <staszak.raf@gmail.com>
 RUN echo "Europe/Utc" > /etc/timezone
 # RUN ln -fs /usr/share/zoneinfo/Europe/Rome /etc/localtime
@@ -22,8 +22,6 @@ RUN apt-get update -q && \
     rm -rf /var/lib/apt/lists/*
 RUN apt-get update -q && \
         export DEBIAN_FRONTEND=noninteractive && \
-    apt-get -y --no-install-recommends install libgl1-mesa-glx libgl1-mesa-dri && \
-    apt-get install mesa-utils && \
     rm -rf /var/lib/apt/lists/*
 RUN sed -i 's/--no-generate//g' /usr/share/bash-completion/completions/apt-get && \
     sed -i 's/--no-generate//g' /usr/share/bash-completion/completions/apt-cache
