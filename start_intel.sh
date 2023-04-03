@@ -7,7 +7,7 @@ fi
 
 xhost +local:root
 docker run -it --rm \
-	--name=foxy \
+	--name=humble \
 	--shm-size=1g \
 	--ulimit memlock=-1 \
 	--volume="/tmp/.X11-unix:/tmp/.X11-unix" \
@@ -16,5 +16,5 @@ docker run -it --rm \
 	--device=/dev/video0 \
 	--env="DISPLAY=$DISPLAY" \
 	--network=host \
-	foxy \
+	humble \
 	bash

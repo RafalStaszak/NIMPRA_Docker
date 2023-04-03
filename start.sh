@@ -19,7 +19,7 @@ then
     chmod a+r $XAUTH
 fi
 docker run -it --rm \
-	--name=foxy \
+	--name=humble \
 	--shm-size=1g \
 	--ulimit memlock=-1 \
 	--env="DISPLAY" \
@@ -34,5 +34,5 @@ docker run -it --rm \
 	--env="NVIDIA_VISIBLE_DEVICES=all" \
 	--env="NVIDIA_DRIVER_CAPABILITIES=all" \
         --network=host \
-	foxy \
+	humble \
 	bash
