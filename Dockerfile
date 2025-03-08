@@ -1,15 +1,15 @@
-FROM osrf/ros:humble-desktop
+FROM osrf/ros:jazzy-desktop
 MAINTAINER Rafal Staszak <staszak.raf@gmail.com>
 RUN echo "Europe/Utc" > /etc/timezone
 # RUN ln -fs /usr/share/zoneinfo/Europe/Rome /etc/localtime
 RUN apt-get update -q && \
 	export DEBIAN_FRONTEND=noninteractive && \
-    apt-get install -y --no-install-recommends tzdata
+    apt-get install -y --no-install-recommends tzdata apt-transport-https
 RUN dpkg-reconfigure -f noninteractive tzdata
 # Install packages
 RUN apt-get update -q && \
 	export DEBIAN_FRONTEND=noninteractive && \
-    apt-get install -y --no-install-recommends apt-utils software-properties-common wget curl rsync netcat mg vim bzip2 zip unzip && \
+    apt-get install -y --no-install-recommends apt-utils software-properties-common wget curl rsync netcat-traditional mg vim bzip2 zip unzip && \
     apt-get install -y --no-install-recommends libxtst6 && \
     apt-get install -y --no-install-recommends bash-completion && \
     apt-get install -y --no-install-recommends nano && \ 
